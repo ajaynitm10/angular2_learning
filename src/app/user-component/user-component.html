@@ -1,0 +1,12 @@
+<h1 [appBetterhighlight]="'red'">
+  {{title}} - {{appName}}
+</h1>
+<h1 appBasichighlight >
+  {{title}} - {{appName}}
+</h1>
+
+<input type="text" #templateRef>
+
+<button type="button" (click)="onClick()">get input value</button>
+
+<ng-content></ng-content>

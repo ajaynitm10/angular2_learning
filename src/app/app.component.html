@@ -1,0 +1,36 @@
+<div>
+	<ul class="nav nav-tabs">
+        <li role="presentation"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">
+          <a routerLink="/">Home</a>
+        </li>
+        <li role="presentation"
+            routerLinkActive="active">
+          <a [routerLink]="['user']">Users</a>
+        </li>
+      </ul>
+</div>
+
+<h1>{{childdata}}</h1>
+
+<!--<div class="btn-group">
+    <button *ngFor="let lang of supportedLangs"
+    (click)="selectLang(lang.value)"
+    class="btn btn-default" [class.btn-primary]="isCurrentLang(lang.value)">
+    {{ lang.display }}
+    </button>
+</div> -->
+<hr>
+<input type="text" [(ngModel)]="langType">
+
+<app-user-component [appName]="title" (userUpdated)="handedtoParent($event)">
+	<div *ngFor="let user of userData">
+		<p #contentData>{{user.type | locale:langType}} - {{user.name | locale:langType}}</p>
+	</div>
+</app-user-component>
+
+
+<div>
+	<router-outlet></router-outlet>
+</div>
